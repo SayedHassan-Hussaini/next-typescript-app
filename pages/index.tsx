@@ -28,7 +28,6 @@ const userNavigation = [
 ];
 
 function classNames(classes: [string, string]) {
-  console.log("..........", classes);
   return classes.filter(Boolean).join(" ");
 }
 
