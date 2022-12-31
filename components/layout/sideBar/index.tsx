@@ -19,8 +19,8 @@ function classNames(...classes) {
 export default function Sidebar({ currentPage }) {
   const navigation = [
     { name:"Home", href: "/", icon: HomeIcon, current: true },
-    { name:"Team", href: "/", icon: HomeIcon, current: true },
-    { name:"About us", href: "/", icon: HomeIcon, current: true },
+    { name:"Team", href: "/team", icon: HomeIcon, current: true },
+    { name:"About us", href: "/about", icon: HomeIcon, current: true },
   
 
   ];
