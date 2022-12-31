@@ -15,14 +15,15 @@ import Link from "next/link";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
+type Sidebar = {
+  currentPage: string;
+};
 
-export default function Sidebar({ currentPage }) {
+export default function Sidebar({ currentPage }: Sidebar) {
   const navigation = [
-    { name:"Home", href: "/", icon: HomeIcon, current: true },
-    { name:"Team", href: "/team", icon: HomeIcon, current: true },
-    { name:"About us", href: "/about", icon: HomeIcon, current: true },
-  
-
+    { name: "Home", href: "/", icon: HomeIcon, current: true },
+    { name: "Team", href: "/team", icon: HomeIcon, current: true },
+    { name: "About us", href: "/about", icon: HomeIcon, current: true },
   ];
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [localeLan, setLocalLan] = useState("en");
