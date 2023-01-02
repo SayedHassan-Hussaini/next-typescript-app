@@ -1,29 +1,21 @@
-import { useEffect } from "react";
 import { shopifyClient, parseShopifyResponse } from "../lib/shopify";
 
-const Index = () => {
-
-  useEffect(() => {
-    const run = async () => {
-      const products = await shopifyClient.product.fetchAll();
-      const response=parseShopifyResponse(products)
-      console.log("product..........",response)
-    };
-    run()
-   
-   
-  }, []);
+interface IIndex {
+  products: [];
+}
+const Index = ({ products }: IIndex) => {
+  console.log("products...........", products);
 
   return <>Index</>;
 };
 export default Index;
-// export const getServerSideProps = async () => {
-//   // Fetch all the products
-//   const products = await shopifyClient.product.fetchAll();
+export const getServerSideProps = async () => {
+  // Fetch all the products
+  const products = await shopifyClient.product.fetchAll();
 
-//   return {
-//    props: {
-//     products: parseShopifyResponse(products),
-//   },
-//  };
-// };
+  return {
+    props: {
+      products: parseShopifyResponse(products),
+    },
+  };
+};
