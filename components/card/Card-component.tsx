@@ -1,3 +1,4 @@
+import Image from "next/image";
 type CardType = {
   imageUrl: string;
   description?: string;
@@ -10,16 +11,16 @@ const Card = ({ imageUrl, description, price, productId }: CardType) => {
     <>
       <div className="w-full max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
         <a href="#">
-          <img
+          <Image
             className="p-8 rounded-t-lg"
-            src="/docs/images/products/apple-watch.png"
+            src={imageUrl}
             alt="product image"
           />
         </a>
         <div className="px-5 pb-5">
           <a href="#">
             <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-              Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport
+              {description}
             </h5>
           </a>
           <div className="flex items-center mt-2.5 mb-5">
@@ -74,7 +75,7 @@ const Card = ({ imageUrl, description, price, productId }: CardType) => {
           </div>
           <div className="flex items-center justify-between">
             <span className="text-3xl font-bold text-gray-900 dark:text-white">
-              $599
+              ${price}
             </span>
             <a
               href="#"
