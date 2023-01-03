@@ -3,7 +3,7 @@ export default function Register() {
     return (
       <>
         <div className="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
-          <div className="sm:mx-auto sm:w-full sm:max-w-md">
+          <div className="sm:mx-auto sm:w-full sm:max-w-lg">
             <img
               className="mx-auto h-12 w-auto"
               src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
@@ -18,7 +18,7 @@ export default function Register() {
             </p>
           </div>
   
-          <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+          <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-xl">
             <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
               <form className="space-y-6" action="#" method="POST">
                 <div>
