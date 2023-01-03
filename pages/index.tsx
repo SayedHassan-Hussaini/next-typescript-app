@@ -1,3 +1,4 @@
+import Card from "../components/card/Card-component";
 import { shopifyClient, parseShopifyResponse } from "../lib/shopify";
 
 interface IIndex {
@@ -6,7 +7,11 @@ interface IIndex {
 const Index = ({ products }: IIndex) => {
   console.log("products...........", products);
 
-  return <>Index</>;
+  return (
+    <div className="md:w-[80%] mx-auto mt-5">
+      <Card />
+    </div>
+  );
 };
 export default Index;
 export const getServerSideProps = async () => {
