@@ -3,8 +3,6 @@ import { shopifyClient, parseShopifyResponse } from "../lib/shopify";
 
 interface IIndex {
   products: [];
-  user: [];
-  createUser: [];
 }
 type productType = {
   id: string;
@@ -13,9 +11,8 @@ type productType = {
   variants: [{ price: { amount: number } }];
 };
 
-const Index = ({ products, user, createUser }: IIndex) => {
-  console.log(" products...........", createUser);
-  console.log(" user...........", user);
+const Index = ({ products}: IIndex) => {
+
   const handleRegister = async () => {
     const data = {
       first_name: "Steve",
@@ -75,43 +72,10 @@ export default Index;
 export const getServerSideProps = async () => {
   // Fetch all the products
   const products = await shopifyClient.product.fetchAll();
-  const users = await fetch(
-    `https://sayed-company.myshopify.com/admin/api/2023-01/customers/search.json?query=email:sh.hussaini1378@gmail.com&query=last_name:Hussaini`,
-    {
-      headers: {
-        "Content-Type": "application/json",
-        "X-Shopify-Access-Token": "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",
-      },
-    }
-  );
-  const response = await users.json();
-
-  const data = {
-    firstName: "Steve",
-    lastName: "Lastnameson",
-    email: "sayed@gmail.com", 
-    password: "newpass",
-   
-    };
-  const req = await fetch(
-    `https://sayed-company.myshopify.com/admin/api/2023-01/customers.json`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Shopify-Access-Token": "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",
-      },
-      body: JSON.stringify(data),
-    }
-  );
-  console.log("req..............", req);
-  const response2 = await req.json();
-  console.log("respon...........", response2);
+  
   return {
     props: {
       products: parseShopifyResponse(products),
-      user: response,
-      createUser: response2,
     },
   };
 };
